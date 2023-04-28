@@ -147,47 +147,48 @@ svg {
 /* okno modalne */
 .backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         rgba(0, 0, 0, 0.2);
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: opacity 0.5s linear, visibility 0.5s linear;
+
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 528px;
-    height: 581px;
+    position: relative;
 
-    border: 1px solid #000000;
+    width: 528px;
+    min-height: 581px;
+
     background: #ffffff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     transition: transform 0.5s linear;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
 }
 
 .is-hidden .modal {
-    transform: translateX(-50%) translateY(-50%) scale(0);
+    transform: scale(0);
 }
 
 .button-close {
     position: absolute;
     top: 8px;
-    left: 490px;
-    padding: 6px;
+    right: 8px;
+    padding: 9px 9px 10px 10px;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .is-hidden {
@@ -423,8 +424,8 @@ svg {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--text-color-white);
-    padding-top: 12px;
-    padding-bottom: 32px;
+    margin-top: 12px;
+    margin-bottom: 20px;
 }
 .footer-social-links {
     fill: var(--text-color-white);
@@ -501,8 +502,8 @@ svg {
     color: var(--text-color-grey);
 }
 
-.figure-shadow:hover,
-.figure-shadow:focus {
+.project-card:hover,
+.project-card:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
         1px 4px 6px rgba(0, 0, 0, 0.16);
 
@@ -541,6 +542,10 @@ svg {
     padding-right: 45px;
 }
 
-.figure-shadow:hover .overlay {
+.project-card:hover .overlay {
+    transform: translateY(0);
+}
+
+.project-card:focus .overlay {
     transform: translateY(0);
 }
